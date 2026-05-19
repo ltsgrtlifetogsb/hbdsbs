@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Sarmie 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="favicon.jpg" rel="icon">
+  <link href="icon.jpg" rel="icon">
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       SPLASH SCREEN
+  ══════════════════════════════ -->
+  <div id="splash" class="splash">
+    <div class="splash-bg-hearts" id="splashHearts"></div>
+    <div class="splash-inner">
+      <div class="splash-emojis">🎉 🎂 💕 ✨ 🎈</div>
+      <h1 class="splash-title">
+        Happy Birthday<br>
+        <span class="splash-name">Sanu 💗</span>
+      </h1>
+      <p class="splash-sub">तिम्रो लागि एउटा सानो surprise...</p>
+      <button class="enter-btn" onclick="enterSite()">
+        <span>💕</span> Enter Our World <span>💕</span>
+      </button>
+      <p class="splash-hint">tap to begin 🌸</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       MAIN SITE
+  ══════════════════════════════ -->
+  <main id="mainSite" class="hidden">
+
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <audio id="bgMusic" loop>
+      <source src="birthday.mp3" type="audio/mpeg" />
+    </audio>
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle Music">
+      <span id="musicIcon">🎵</span>
+    </button>
+
+    <!-- ─── 1. HERO ─── -->
+    <section class="hero">
+      <div class="confetti-wrap" id="confetti"></div>
+      <div class="hero-inner">
+        <p class="hero-tag">✨ आजको दिन एकदमै Special छ ✨</p>
+        <h1 class="hero-title">
+          जन्मदिनको<br>
+          <span class="hero-name">धेरै धेरै<br>शुभकामना!</span>
+        </h1>
+        <p class="hero-nick">मेरो प्यारो <strong>पुकुली</strong> 💗</p>
+        <div class="cake-wrap">
+          <span class="cake">🎂</span>
+          <span class="sparkle s1">✨</span>
+          <span class="sparkle s2">⭐</span>
+          <span class="sparkle s3">✨</span>
+        </div>
+        <p class="hero-quote">
+          "आजदेखि तिम्रो दिन झनै चम्किलो होस्,<br>
+		जीवन फलोस् फुलोस्,<br>
+	र हामी सँगै हुने त्यो मीठो दिन चाँडै आओस्।" 🌺 💖
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── 2. PHOTO GALLERY ─── -->
+    <!-- <section class="section gallery-section reveal">
+      <div class="section-header">
+        <h2 class="section-title">हाम्रा यादहरू 📸</h2>
+        <p class="section-sub">Our precious moments together 💕</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="photo-card placeholder">
+          <div class="photo-inner"><span class="ph-icon">📸</span><p class="ph-label">photo1.jpg</p></div>
+          <p class="photo-caption">"त्यो पल, जब तिमी मेरो जिन्दगीमा आयौ र मेरो संसार पुरै बदलियो।"</p>
+        </div>
+        <div class="photo-card placeholder">
+          <div class="photo-inner"><span class="ph-icon">📸</span><p class="ph-label">photo2.jpg</p></div>
+          <p class="photo-caption">"तिम्रो यो सुन्दर हाँसो नै मेरो जिन्दगीको सबैभन्दा ठूलो उज्यालो हो।"</p>
+        </div>
+        <div class="photo-card placeholder">
+          <div class="photo-inner"><span class="ph-icon">📸</span><p class="ph-label">photo3.jpg</p></div>
+          <p class="photo-caption">"कति धेरै उतारचढाव आए, तर तिम्रो मुटुले मेरो हात कहिल्यै छोडेन।"</p>
+        </div>
+        <div class="photo-card placeholder">
+          <div class="photo-inner"><span class="ph-icon">📸</span><p class="ph-label">photo4.jpg</p></div>
+          <p class="photo-caption">"हरेक क्षण तिमीसँग बिताउनु मेरो सबैभन्दा ठूलो खुसी हो।"</p>
+        </div>
+      </div>
+    </section> -->
+    <section class="section gallery-section reveal">
+  <div class="section-header">
+    <h2 class="section-title">हाम्रा यादहरू 📸</h2>
+    <p class="section-sub">Our precious moments together 💕</p>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <div class="photo-card">
+      <img src="photo1.jpeg" alt="Photo 1" onclick="openLightbox('photo1.jpeg', 'त्यो पल, जब तिमी मेरो जिन्दगीमा आयौ र मेरो संसार पुरै बदलियो।')">
+      <p class="photo-caption">
+        "त्यो पल, जब तिमी मेरो जिन्दगीमा आयौ र मेरो संसार पुरै बदलियो।"
+      </p>
+    </div>
+
+    <div class="photo-card">
+      <img src="photo2.jpg" alt="Photo 2" onclick="openLightbox('photo2.jpg', 'तिम्रो यो सुन्दर हाँसो नै मेरो जिन्दगीको सबैभन्दा ठूलो उज्यालो हो।')">
+      <p class="photo-caption">
+        "तिम्रो यो सुन्दर हाँसो नै मेरो जिन्दगीको सबैभन्दा ठूलो उज्यालो हो।"
+      </p>
+    </div>
+
+    <div class="photo-card">
+      <img src="photo3.jpg" alt="Photo 3" onclick="openLightbox('photo3.jpg', 'कति धेरै उतारचढाव आए, तर तिम्रो मुटुले मेरो हात कहिल्यै छोडेन।')">
+      <p class="photo-caption">
+        "कति धेरै उतारचढाव आए, तर तिम्रो मुटुले मेरो हात कहिल्यै छोडेन।"
+      </p>
+    </div>
+
+    <div class="photo-card">
+      <img src="photo4.jpg" alt="Photo 4" onclick="openLightbox('photo4.jpg', 'हरेक क्षण तिमीसँग बिताउनु मेरो सबैभन्दा ठूलो खुसी हो।')">
+      <p class="photo-caption">
+        "हरेक क्षण तिमीसँग बिताउनु मेरो सबैभन्दा ठूलो खुसी हो।"
+      </p>
+    </div>
+
+    <div class="photo-card">
+      <img src="photo5.jpg" alt="Photo 5" onclick="openLightbox('photo5.jpg', 'तिम्रो मुस्कानले मेरो दिन उज्यालो बनाउँछ।')">
+      <p class="photo-caption">
+        "तिम्रो मुस्कानले मेरो दिन उज्यालो बनाउँछ।"
+      </p>
+    </div>
+
+    <div class="photo-card">
+      <img src="photo6.jpg" alt="Photo 6" onclick="openLightbox('photo6.jpg', 'सँगै बिताएका हरेक पल अमूल्य छन्।')">
+      <p class="photo-caption">
+        "सँगै बिताएका हरेक पल अमूल्य छन्।"
+      </p>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ─── 3. MAIN LETTER ─── -->
+    <section class="section letter-section reveal">
+      <div class="letter-card">
+        <div class="letter-top">
+          <span>🌹</span>
+          <h2 class="letter-title">मेरो मनको कुरा...</h2>
+          <span>🌹</span>
+        </div>
+        <div class="letter-divider"></div>
+
+        <p class="letter-para">पुकुली, आजको दिन तिमी यो धर्तीमा आयौ र मेरो जिन्दगीले एउटा साँचो अर्थ पायो। परिस्थिति जस्तोसुकै होस्, हामी कति धेरै मानसिक तनाव र आँसुबाट गुज्रिएका किन नहौँ, तिम्रो लागि मेरो मनमा भएको माया कहिल्यै कम हुने छैन।</p>
+
+        <p class="letter-para">तिमीले मेरो लागि गरेका त्यागहरू, तिम्रो त्यो धैर्यता र मप्रतिको विश्वास मेरो लागि सबैभन्दा मूल्यवान् सम्पत्ति हो। कहिलेकाहीँ तिमीलाई गुमाउने डरले म अलिकति कमजोर हुन्छु, तर मलाई तिम्रो मायामा पूर्ण विश्वास छ।</p>
+
+        <div class="letter-highlight">
+          <span class="lh-icon">💭</span>
+          <p>आजको दिन तिम्रो अनुहारमा एउटा ठूलो हाँसो मात्र हेर्न चाहन्छु। घरको तनाव, भविष्यको चिन्ता र हिजोका सबै आँसुहरूलाई बिर्सेर आज मात्र आफ्नो खुसीको बारेमा सोच है।</p>
+        </div>
+
+        <p class="letter-para">तिमी मेरो वर्तमान हौ, मेरो भविष्य हौ र मेरो बाँच्ने आधार हौ। तिमी जस्तो अद्भुत र बलियो केटीलाई आफ्नो जीवनसाथीको रूपमा पाउनु मेरो अहोभाग्य हो। म सधैं सकारात्मक छु र हाम्रो यो सुन्दर सम्बन्धलाई बचाउन म आफ्नो अन्तिम श्वाससम्म लडिरहनेछु।</p>
+
+        <div class="letter-closing">
+          <p class="lc-main">I love you so much, Pukuli.</p>
+          <p class="lc-sub">Always and forever. 💗</p>
+          <div class="lc-hearts">💕 💗 💖 💓 💕</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 4. PROMISES ─── -->
+    <section class="section promises-section reveal">
+      <div class="section-header">
+        <h2 class="section-title">मेरो प्रतिज्ञाहरू 🌟</h2>
+        <p class="section-sub">My promises to you, always 💕</p>
+      </div>
+      <div class="promises-grid">
+        <div class="promise-card" style="--d:0s">
+          <div class="promise-icon">🌟</div>
+          <h3 class="promise-title">सधैं साथ दिने</h3>
+          <p class="promise-text">परिस्थिति जतिसुकै गाह्रो भए पनि म तिम्रो बलियो खम्बा बनेर उभिनेछु।</p>
+        </div>
+        <div class="promise-card" style="--d:0.1s">
+          <div class="promise-icon">🌸</div>
+          <h3 class="promise-title">खुसी राख्ने</h3>
+          <p class="promise-text">तिम्रो कोमल मुटुलाई कहिल्यै चोट पुग्न दिने छैन, सधैं तिम्रो ओठमा हाँसो छर्नेछु।</p>
+        </div>
+        <div class="promise-card" style="--d:0.2s">
+          <div class="promise-icon">🏡</div>
+          <h3 class="promise-title">सुरक्षित छहारी</h3>
+          <p class="promise-text">तिम्रो लागि म सधैं एउटा यस्तो छहारी बन्नेछु जहाँ तिमीले आफूलाई संसारकै सुरक्षित महसुस गर्नेछौ।</p>
+        </div>
+        <div class="promise-card" style="--d:0.3s">
+          <div class="promise-icon">💪</div>
+          <h3 class="promise-title">सधैं विश्वास</h3>
+          <p class="promise-text">तिम्रो हरेक सपना र लक्ष्यमा म सबैभन्दा ठूलो साथी र supporter बनेर रहनेछु।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 5. BIRTHDAY WISHES CHIPS ─── -->
+    <section class="section wishes-section reveal">
+      <div class="section-header">
+        <h2 class="section-title">Birthday Wishes 🎁</h2>
+      </div>
+      <div class="wishes-scroll">
+        <div class="wish-chip">🌸 तिम्रो हाँसो देख्दा दिन सुन्दर हुन्छ</div>
+        <div class="wish-chip">⭐ तिमी मेरो सबैभन्दा राम्रो निर्णय हौ</div>
+        <div class="wish-chip">🎂 यो जन्मदिन तिम्रो जीवनको सबैभन्दा मीठो होस्</div>
+        <div class="wish-chip">💖 तिमी जे माग्छौ त्यही पाओस्</div>
+        <div class="wish-chip">🌙 तिम्रो हरेक सपना पूरा होस्</div>
+        <div class="wish-chip">✨ सधैं खुसी रहो, मेरी Sanu</div>
+      </div>
+    </section>
+
+    <!-- ─── 6. HONEST ADVICE SECTION ─── -->
+    <section class="section advice-section reveal">
+      <div class="advice-header">
+        <div class="advice-top-badge">💬 मेरो मनको सबै कुरा</div>
+        <h2 class="advice-main-title">तिमीलाई केही कुरा भन्नु छ, सानु...</h2>
+        <p class="advice-main-sub">मायाले भन्छु, सधैं तिम्रो राम्रोको लागि 💗</p>
+      </div>
+
+      <!-- CARD 1: Honesty & Loyalty -->
+      <div class="advice-card ac-love reveal" style="--ac-color:#e91e8c; --ac-bg:linear-gradient(135deg,#fff0f6,#ffe4f0)">
+        <div class="ac-icon-row">
+          <span class="ac-emoji">💗</span>
+          <div class="ac-tag">इमान्दारिता र वफादारी</div>
+        </div>
+        <h3 class="ac-title">सच्चाइ नै हाम्रो सबैभन्दा ठूलो शक्ति हो</h3>
+        <p class="ac-text">
+          पुकुली, हाम्रो सम्बन्धमा एउटा कुरा सबैभन्दा बढी चाहिन्छ — <strong>इमान्दारिता।</strong> जे लाग्छ त्यही भन्नु, जे महसुस हुन्छ त्यही खुलेर बताउनु। मनभित्र कुरा थुनेर राख्यौ भने त्यो बिस्तारै विषको काम गर्छ।
+        </p>
+        <p class="ac-text">
+          म चाहन्छु — तिमी कहिल्यै आफ्नो भावना लुकाउनु नपरोस्। खुसी छौ भने भन्नु, दुखी छौ भने पनि भन्नु, रिस उठेको छ भने पनि शान्त भएर भन्नु। <strong>मलाई सत्य मात्र चाहिन्छ।</strong>
+        </p>
+        <div class="ac-highlight">
+          <span>🔐</span>
+          <p>वफादारी भनेको शरीरको मात्र होइन  मन, विचार र आँखाको पनि हो। हाम्रो सम्बन्ध हाम्रो दुईजनाको मात्र हो — र त्यसलाई दुईजनाले नै जोगाउनु पर्छ।</p>
+        </div>
+      </div>
+
+      <!-- CARD 2: Express feelings -->
+      <div class="advice-card ac-express reveal" style="--ac-color:#9c27b0; --ac-bg:linear-gradient(135deg,#fdf0ff,#f3e5f5)">
+        <div class="ac-icon-row">
+          <span class="ac-emoji">💭</span>
+          <div class="ac-tag" style="background:rgba(156,39,176,.12);color:#9c27b0">भावना व्यक्त गर्नु</div>
+        </div>
+        <h3 class="ac-title" style="color:#7b1fa2">मनको कुरा मनमा नराख्नु</h3>
+        <p class="ac-text">
+          तिमीले कहिलेकाहीँ मनभित्र धेरै कुरा राखेर बस्छौ, म देख्छु। त्यो ट्याक्कै मलाई डराउँछ। तिम्रो मनमा के चलिरहेको छ, मलाई थाहा पाउन मन लाग्छ।
+        </p>
+        <div class="ac-feeling-grid">
+          <div class="ac-feeling">😊 <span>खुसी लाग्यो?<br>भन्नु!</span></div>
+          <div class="ac-feeling">😢 <span>दुख लाग्यो?<br>रोनु!</span></div>
+          <div class="ac-feeling">😟 <span>चिन्ता छ?<br>साझा गर्नु!</span></div>
+          <div class="ac-feeling">🥺 <span>माया लाग्यो?<br>देखाउनु!</span></div>
+        </div>
+        <p class="ac-text" style="margin-top:14px">
+          <strong>म तिम्रो partner हुँ, judge होइन।</strong> तिमी जे भन्छौ म सुन्छु, बुझ्छु र साथ दिन्छु। बस, मनको ढोका कहिल्यै बन्द नगर्नु मेरो लागि।
+        </p>
+      </div>
+
+      <!-- CARD 3: Anger control -->
+      <div class="advice-card ac-anger reveal" style="--ac-color:#ff5722; --ac-bg:linear-gradient(135deg,#fff8f5,#ffe8e0)">
+        <div class="ac-icon-row">
+          <span class="ac-emoji">🌊</span>
+          <div class="ac-tag" style="background:rgba(255,87,34,.12);color:#e64a19">रिस नियन्त्रण</div>
+        </div>
+        <h3 class="ac-title" style="color:#bf360c">रिस आउँदा... एकपटक सास फेर 🌬️</h3>
+        <p class="ac-text">
+          रिस एउटा यस्तो चिज हो जसले हाँस्दाहाँस्दै कति बलियो सम्बन्धलाई पनि एकै क्षणमा बिगार्न सक्छ। र म जान्दछु — तिमीलाई कहिलेकाहीँ धेरै रिस उठ्छ। त्यो स्वाभाविक हो।
+        </p>
+        <div class="ac-anger-steps">
+          <div class="ac-step">
+            <span class="ac-step-num">१</span>
+            <p>रिस आउँदा तुरुन्त केही नभन्नु — <strong>३ सेकेन्ड रोक्नु।</strong></p>
+          </div>
+          <div class="ac-step">
+            <span class="ac-step-num">२</span>
+            <p>गहिरो सास लिनु। मनमा भन: <em>"यो क्षण बित्छ।"</em></p>
+          </div>
+          <div class="ac-step">
+            <span class="ac-step-num">३</span>
+            <p>शान्त भएपछि मात्र कुरा गर्नु — <strong>रिसको आवेगमा होइन।</strong></p>
+          </div>
+          <div class="ac-step">
+            <span class="ac-step-num">४</span>
+            <p>याद गर्नु: हामी एकअर्काका <strong>विरुद्ध</strong> होइनौँ — <strong>साथी</strong> हौँ।</p>
+          </div>
+        </div>
+        <div class="ac-highlight" style="border-color:rgba(255,87,34,.3);background:rgba(255,87,34,.06)">
+          <span>❤️‍🔥</span>
+          <p>तिम्रो कोमल मुटु र मेरो माया मिलेर रिसलाई सधैं हराउन सकोस्। रिसमा बोलेका कुराहरू माफ हुन्छन्, तर बिर्सिदैनन्।</p>
+        </div>
+      </div>
+
+      <!-- CARD 4: TikTok vs Life -->
+      <div class="advice-card ac-tiktok reveal" style="--ac-color:#00bcd4; --ac-bg:linear-gradient(135deg,#f0fdff,#e0f7fa)">
+        <div class="ac-icon-row">
+          <span class="ac-emoji">📱</span>
+          <div class="ac-tag" style="background:rgba(0,188,212,.12);color:#00838f">टिकटक vs रियल लाइफ</div>
+        </div>
+        <h3 class="ac-title" style="color:#006064">टिकटक कम, लाइफमा फोकस बढी! 🎯</h3>
+        <p class="ac-text">
+          पुकुली, टिकटकका भिडियो र ट्रेन्डहरू स्क्रोल गर्दा समय बितेको पत्तै हुँदैन। रमाइलो त हुन्छ, तर त्यसले हाम्रो सुनौलो भविष्य बनाउँदैन।
+        </p>
+        <div class="ac-compare">
+          <div class="ac-compare-col bad">
+            <p class="acc-label">❌ पहिले</p>
+            <p>टिकटक स्क्रोल</p>
+            <p>घण्टौँ भिडियो</p>
+            <p>ट्रेन्ड फलो</p>
+            <p>समय खेर</p>
+          </div>
+          <div class="ac-compare-divider">→</div>
+          <div class="ac-compare-col good">
+            <p class="acc-label">✅ अबदेखि</p>
+            <p>किताब खोल्ने</p>
+            <p>लक्ष्य बनाउने</p>
+            <p>आफ्नै ट्रेन्ड</p>
+            <p>सफल भविष्य</p>
+          </div>
+        </div>
+        <p class="ac-text" style="margin-top:14px">
+          म तिमीलाई टिकटकको भर्चुअल स्क्रिनमा होइन — <strong>आफ्नो वास्तविक जिन्दगीमा एउटा सफल र उदाहरणीय मान्छे बनेको हेर्न चाहन्छु।</strong> 🌟
+        </p>
+      </div>
+
+      <!-- CARD 5: Time & Study -->
+      <div class="advice-card ac-study reveal" style="--ac-color:#4caf50; --ac-bg:linear-gradient(135deg,#f5fff5,#e8f5e9)">
+        <div class="ac-icon-row">
+          <span class="ac-emoji">⏳</span>
+          <div class="ac-tag" style="background:rgba(76,175,80,.12);color:#2e7d32">समय र पढाइ</div>
+        </div>
+        <h3 class="ac-title" style="color:#1b5e20">समय थोरै छ, भविष्य ठूलो छ 🚀</h3>
+        <p class="ac-text">
+          हामीसँग अब बेकारका कुरामा अल्मलिने समय कत्ति पनि छैन। यो समय हाम्रो भविष्य निर्माण गर्ने बेला हो।
+        </p>
+        <div class="ac-mission">
+          <p class="ac-mission-title">🎯 अबको हाम्रो Mission:</p>
+          <div class="ac-mission-item"><span>📚</span><p>पढाइमा पूर्ण फोकस</p></div>
+          <div class="ac-mission-item"><span>💪</span><p>करियरमा मेहनत</p></div>
+          <div class="ac-mission-item"><span>🧠</span><p>कम तनाव, बढी स्मार्ट काम</p></div>
+          <div class="ac-mission-item"><span>🌟</span><p>उज्यालो भविष्य, सँगै</p></div>
+        </div>
+        <div class="ac-highlight" style="border-color:rgba(76,175,80,.35);background:rgba(76,175,80,.07)">
+          <span>🔮</span>
+          <p>आज हामीले मेहनत गर्यौँ भने मात्र भोलि <strong>कसैले पनि हाम्रो हात छुटाउन सक्ने छैन।</strong></p>
+        </div>
+      </div>
+
+      <!-- CARD 6: Communication -->
+      <div class="advice-card ac-talk reveal" style="--ac-color:#ff9800; --ac-bg:linear-gradient(135deg,#fffdf0,#fff8e1)">
+        <div class="ac-icon-row">
+          <span class="ac-emoji">🗣️</span>
+          <div class="ac-tag" style="background:rgba(255,152,0,.12);color:#e65100">कुराकानी</div>
+        </div>
+        <h3 class="ac-title" style="color:#bf360c">नरिसाऊ, कुरा गर 💬</h3>
+        <p class="ac-text">
+          कहिलेकाहीँ एउटा साना गलतफहमी पनि ठूलो झगडामा बदलिन्छ, किनभने हामीले कुरा गरेनौँ। रिसमा चुप बस्नु वा block गर्नु, गाली गर्नु समस्याको समाधान होइन।
+        </p>
+        <div class="ac-talk-rules">
+          <div class="ac-rule">
+            <span>🚫</span>
+            <div>
+              <p class="acr-bad">गर्नु नपर्ने</p>
+              <p>रिसमा block गर्ने, रातभरि नबोल्ने, मनभित्र राख्ने</p>
+            </div>
+          </div>
+          <div class="ac-rule">
+            <span>✅</span>
+            <div>
+              <p class="acr-good">गर्नु पर्ने</p>
+              <p>शान्त भएर "मलाई यो कुरा मन परेन" भन्नु-> सोझै, ममायालु पारामा </p>
+            </div>
+          </div>
+        </div>
+        <p class="ac-text" style="margin-top:14px;font-style:italic;color:var(--text-soft)">
+          "एउटा कुराकानीले बचाउन सक्ने सम्बन्ध, एउटा चुप्पीले डुबाउन सक्छ।"
+        </p>
+      </div>
+
+      <!-- Bottom seal -->
+      <div class="advice-seal">
+        <div class="seal-hearts">💗 💕 💗</div>
+        <p class="seal-text">यी सबै कुरा रिसाएर भनेको होइन  <strong>माया गरेर भनेको हो।</strong><br>तिमी मेरो हौ, र मेरोले राम्रो हुनु पर्छ। 🌸</p>
+      </div>
+    </section>
+
+    <!-- ─── 7. TAKE CARE (long distance) ─── -->
+    <section class="section takecare-section reveal">
+      <div class="takecare-card">
+
+        <!-- Top icon -->
+        <div class="tc-icon-wrap">
+          <span class="tc-moon">🌙</span>
+          <span class="tc-line"></span>
+          <span class="tc-heart-icon">💗</span>
+          <span class="tc-line"></span>
+          <span class="tc-moon">🌙</span>
+        </div>
+
+        <h2 class="tc-title">टाढाबाट एउटा कुरा...</h2>
+        <p class="tc-subtitle"> तिम्रो मान्छेको मनको भार 💌</p>
+
+        <div class="tc-distance-badge">
+          📍 हामी टाढा छौँ, तर माया टाढा छैन 💕
+        </div>
+
+        <p class="tc-para">
+          सानु, म जान्दछु, म यहाँ छैन। तिम्रो थकान हुँदा हात समाउन सक्दिनँ, तिमी रोँदा आँसु पुछ्न सक्दिनँ, तिमीलाई भोक लाग्दा खाना बनाइदिन सक्दिनँ। यो टाढाइ मलाई सबैभन्दा बढी दुख्छ।
+        </p>
+
+        <p class="tc-para">
+          तर एउटा कुरा सधैं याद राख — <strong>म टाढा भए पनि मेरो मन सधैं तिमीसँगै छ।</strong> हरेक बिहान तिमीलाई सम्झेर उठ्छु, हरेक रात तिम्रो कुरा सोचेर सुत्छु।
+        </p>
+
+        <!-- Care cards grid -->
+        <div class="tc-grid">
+          <div class="tc-care-card" style="--cd:0s">
+            <span class="tc-care-icon">🍜</span>
+            <p class="tc-care-title">खाना खानु</p>
+            <p class="tc-care-text">समयमा खाना खाऊ। भोको बस्यौ भने मलाई धेरै चिन्ता हुन्छ।</p>
+          </div>
+          <div class="tc-care-card" style="--cd:0.1s">
+            <span class="tc-care-icon">😴</span>
+            <p class="tc-care-title">राम्रो सुत्नु</p>
+            <p class="tc-care-text">रातिसम्म फोन नचलाऊ। (यो वेबसाइट हेरिसकेपछि फोन राखिदेऊ! 😅)</p>
+          </div>
+          <div class="tc-care-card" style="--cd:0.2s">
+            <span class="tc-care-icon">💧</span>
+            <p class="tc-care-title">पानी पिउनु</p>
+            <p class="tc-care-text">दिनभरि पानी पिउन नबिर्सनु। तिम्रो स्वास्थ्य मेरो सबैभन्दा ठूलो चिन्ता हो।</p>
+          </div>
+          <div class="tc-care-card" style="--cd:0.3s">
+            <span class="tc-care-icon">🌸</span>
+            <p class="tc-care-title">खुसी रहनु</p>
+            <p class="tc-care-text">जे पनि गाह्रो लागे, एकपटक सास फेर। म सधैं फोनमा हुन्छु कल गर।</p>
+          </div>
+        </div>
+
+        <!-- Emotional pull quote -->
+        <div class="tc-quote">
+          <span class="tc-quote-mark">"</span>
+          <p>म त्यहाँ हुन सकिनँ भनेर मलाई धेरै पटक दुख्छ। तर तिमीले आफ्नो ख्याल राख्यौ भने — त्यही मेरो सबैभन्दा ठूलो खुसी हो। आफूलाई माया गर्नु भनेको मलाई माया गर्नु हो।</p>
+          <span class="tc-quote-mark tc-qr">"</span>
+        </div>
+
+        <!-- Distance visual -->
+        <div class="tc-distance-visual">
+          <div class="tc-loc">
+            <span>📍</span>
+            <p>म यहाँ</p>
+          </div>
+          <div class="tc-dots">
+            <span>· · · · · 💕 · · · · ·</span>
+            <p class="tc-dots-label">माया कहिल्यै टाढा हुँदैन</p>
+          </div>
+          <div class="tc-loc">
+            <span>📍</span>
+            <p>तिमी त्यहाँ</p>
+          </div>
+        </div>
+
+        <p class="tc-closing">
+          तिमी ठीक छौ भने म ठीक छु। तिमी खुसी छौ भने म खुसी छु। <strong>त्यसैले, मेरो सानुले आफ्नो राम्रो ख्याल राख्नु पर्छ — promise गर। 🤞💗</strong>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ─── 7. PADHAI ROAST (funny ending) ─── -->
+    <section class="section padhai-section reveal">
+      <div class="padhai-card">
+        <div class="padhai-badge">📚 एउटा सानो ज्ञानको कुरा 😜</div>
+
+        <h2 class="padhai-headline">
+          "माया त छँदैछ... तर अलिकति ज्ञानको कुरा पनि गरौँ है!"
+        </h2>
+
+        <p class="padhai-text">पुकुली, हाम्रो रोमान्स, २४ घण्टे गफ र इमोसनल कुराहरू आफ्नो ठाउँमा एकदमै पर्फेक्ट छन्। तर यो डिजिटल संसारबाट निस्किएपछि एउटा तितो सत्य के हो भने...</p>
+
+        <div class="truth-box">
+          <span>📖</span>
+          <strong>'पढ्न चाहिँ पर्छ है!' ✍️</strong>
+        </div>
+
+        <p class="padhai-text">मायाले मात्रै एक्जाम पास गराउँदैन नि फेरि! म त सधैं सकारात्मक छु नै, तर तिमीले पनि किताबसँग अलिकति <em>"अफेयर"</em> चलाउनु पर्ने देखिन्छ।</p>
+
+        <p class="padhai-sweet">जब तिमी कापी-किताब अगाडि राखेर गम्भीर बन्छौ नि... <strong>तिमी झन् बढी Better देखिन्छौ। 😍</strong></p>
+
+        <div class="moti-box">
+          <p class="moti-label">🎯 जन्मदिनको Official मोटिभेसन:</p>
+          <div class="moti-items">
+            <div class="moti-item">✅ <span>कम सोच्ने</span></div>
+            <div class="moti-item">📚 <span>धेरै पढ्ने</span></div>
+            <div class="moti-item">💕 <span>मलाई धेरै माया गर्ने</span></div>
+          </div>
+          <div class="deal-tag">Okay? 🤝✨</div>
+        </div>
+
+        <div class="roast-note">
+          <span>😏</span>
+          <p>"यो माथिको फोटो खिच्दा जति दिमाग चलाएकी थियौ, त्यति नै दिमाग पढाइमा पनि लगाउनु पर्यो है, सानु। 📖"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="footer">
+      <div class="footer-hearts">💕 💗 💖 💓 💕</div>
+      <h2 class="footer-title">Happy Birthday, Sanu! 🎂</h2>
+      <p class="footer-love">तिमीलाई माया गर्छु सधैं, सधैं💗 Ily</p>
+      <div class="footer-warning">
+        <span>🤫</span>
+        <p><strong>महत्त्वपूर्ण नोट:</strong> यो वेबसाइट पढिसकेपछि तुरुन्तै किताब खोल्न हुन हार्दिक अनुरोध गरिन्छ! अन्यथा सजाय मिल्न सक्छ। 😈</p>
+      </div>
+      <p class="footer-credit">Made with 💕 only for you, Sarmila💖</p>
+    </footer>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lb-inner">
+      <img id="lbImg" src="" alt="" />
+      <p id="lbCaption" class="lb-caption"></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
